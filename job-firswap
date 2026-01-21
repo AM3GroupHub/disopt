@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N LiMnTiO_fireswap
+#PBS -l select=1:ngpus=1
+#PBS -l walltime=12:00:00 
+#PBS -j oe
+#PBS -P 11001786
+#PBS -q normal
+
+source activate mace
+module load cuda/12.6.0 
+module load gcc/11.4.0-nscc  
+module load openmpi/4.1.6-gcc11
+module load cmake/3.24.3
+
+cd /home/users/nus/zhongpc/scratch/syb/LiMnTiO/fireswap
+python run_fireswap.py
+
